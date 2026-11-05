@@ -4,7 +4,7 @@ Paste these into Claude Desktop or Claude Code (started inside this folder) whil
 is open with the BlenderMCP add-on connected. Swap the `[brackets]`.
 
 ## Quick wins with the built-in templates
-- *"Build reels/neon_orb.json in Blender, show me a viewport screenshot, then change the palette to sunset oranges and pinks."*
+- *"Build reels/examples/neon_orb.json in Blender, show me a viewport screenshot, then change the palette to sunset oranges and pinks."*
 - *"Make a new kinetic_title reel with the hook 'ChatGPT can't do this' / 'but Claude can' / 'watch'. 5 seconds, cyan and lime accents."*
 - *"Create a crystal_loop variant with a 12x12 grid, a slower wave and a gold/teal palette. Save it as reels/gold_wave.json."*
 

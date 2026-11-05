@@ -1,6 +1,6 @@
 """Headless render entry point.
 
-    blender -b -P scripts/render_reel.py -- reels/neon_orb.json [--fast | --draft] [--frames 1-30]
+    blender -b -P scripts/render_reel.py -- reels/examples/neon_orb.json [--fast | --draft] [--frames 1-30]
                                             [--out DIR] [--engine eevee|cycles] [--samples N]
 
 Speed guide (9 s reel, 270 frames):

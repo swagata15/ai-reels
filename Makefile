@@ -2,7 +2,7 @@
 BLENDER ?= blender
 PYTHON  ?= python3
 R       ?= neon_orb
-NAME    := $(shell $(PYTHON) -c "import json;print(json.load(open('reels/$(R).json'))['name'])")
+NAME    := $(shell $(PYTHON) -c "import json;print(json.load(open('reels/examples/$(R).json'))['name'])")
 MUSIC   ?=
 POSTFLAGS ?= --glow --grain
 
@@ -11,10 +11,10 @@ POSTFLAGS ?= --glow --grain
 reel: render post
 
 render:
-	$(BLENDER) -b -P scripts/render_reel.py -- reels/$(R).json
+	$(BLENDER) -b -P scripts/render_reel.py -- reels/examples/$(R).json
 
 draft:
-	$(BLENDER) -b -P scripts/render_reel.py -- reels/$(R).json --draft --frames 1-60
+	$(BLENDER) -b -P scripts/render_reel.py -- reels/examples/$(R).json --draft --frames 1-60
 	$(PYTHON) scripts/postprocess.py output/$(NAME) $(POSTFLAGS)
 
 post:

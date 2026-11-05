@@ -41,15 +41,15 @@ You need **Blender 4.2+** (tested on 5.0), **Python 3.10+**, **[uv](https://docs
    - *Claude Code:* `cd ai-reels-studio && claude`. The `.mcp.json` here gets picked up (approve it when asked). Check with `/mcp`.
    - *Claude Desktop:* *Settings > Developer > Edit Config* and merge in `claude_desktop_config.example.json`, then restart. A hammer/tools icon shows the Blender tools.
    - Only run **one** MCP client against Blender at a time.
-3. **Try it:** *"Build reels/neon_orb.json in Blender and show me a screenshot."*
+3. **Try it:** *"Build reels/examples/neon_orb.json in Blender and show me a screenshot."*
 
 ## Render a reel
 ```bash
 # quick preview (half-res, first 2 s)
-blender -b -P scripts/render_reel.py -- reels/kinetic_title.json --draft --frames 1-60
+blender -b -P scripts/render_reel.py -- reels/examples/kinetic_title.json --draft --frames 1-60
 
 # full quality
-blender -b -P scripts/render_reel.py -- reels/kinetic_title.json
+blender -b -P scripts/render_reel.py -- reels/examples/kinetic_title.json
 
 # Instagram-ready MP4 + cover (add --loops 2 to double a seamless loop)
 python scripts/postprocess.py output/ai_tools_hook --glow --grain --music music/track.mp3

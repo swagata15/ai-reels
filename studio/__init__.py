@@ -1,10 +1,10 @@
 """AI Reels Studio - procedural Blender scenes for Instagram Reels.
 
 Two ways in:
-  * Headless:  blender -b -P scripts/render_reel.py -- reels/neon_orb.json
+  * Headless:  blender -b -P scripts/render_reel.py -- reels/examples/neon_orb.json
   * Via Blender MCP (Claude calls `execute_blender_code`):
         import sys; sys.path.insert(0, "/abs/path/to/ai-reels-studio")
-        import studio; studio.build("reels/neon_orb.json")
+        import studio; studio.build("reels/examples/neon_orb.json")
 """
 from __future__ import annotations
 
