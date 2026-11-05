@@ -1,0 +1,156 @@
+{
+  "name": "psych_03_conspiracy",
+  "template": "data_story",
+  "duration_s": 28.8,
+  "fps": 30,
+  "seed": 19,
+  "palette": [
+    "#0A0F1C",
+    "#5CC8FF",
+    "#FFD166",
+    "#FFFFFF"
+  ],
+  "text": [
+    "-20%",
+    "belief in conspiracy theories",
+    "after one conversation with AI"
+  ],
+  "params": {
+    "background": "network",
+    "dim": 0.32,
+    "mood": "calm",
+    "hook_s": [
+      0,
+      3.2
+    ],
+    "beats": [
+      {
+        "type": "text",
+        "lines": [
+          "2,190 people who believed",
+          "a conspiracy theory",
+          "debated it with GPT-4"
+        ],
+        "sizes": [
+          0.95,
+          0.95,
+          0.95
+        ],
+        "colors": [
+          "#FFFFFF",
+          "#FFFFFF",
+          "#5CC8FF"
+        ],
+        "at": [
+          3.0,
+          6.8
+        ]
+      },
+      {
+        "type": "stat",
+        "kicker": "SCIENCE  -  2024",
+        "value": 20,
+        "prefix": "-",
+        "suffix": "%",
+        "ring": 0.2,
+        "label": [
+          "average drop in belief",
+          "and it lasted 2+ months"
+        ],
+        "at": [
+          6.6,
+          11.6
+        ]
+      },
+      {
+        "type": "stat",
+        "kicker": "AFTER THE CONVERSATION",
+        "value": 25,
+        "suffix": "%",
+        "ring": 0.25,
+        "label": [
+          "no longer believed it",
+          "(dropped below 50 on a 0-100 scale)"
+        ],
+        "at": [
+          11.4,
+          16.4
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "What worked:",
+          "patient facts tailored to",
+          "each person's exact argument"
+        ],
+        "sizes": [
+          0.8,
+          1.0,
+          1.0
+        ],
+        "colors": [
+          "#FFD166",
+          "#FFFFFF",
+          "#FFFFFF"
+        ],
+        "at": [
+          16.2,
+          20.0
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "99.2% of the AI's claims",
+          "were rated true by a fact-checker"
+        ],
+        "sizes": [
+          0.9,
+          0.7
+        ],
+        "colors": [
+          "#5CC8FF",
+          "#B8C0CC"
+        ],
+        "at": [
+          19.8,
+          22.8
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "Facts can change minds",
+          "with patience"
+        ],
+        "sizes": [
+          1.25,
+          1.25
+        ],
+        "colors": [
+          "#FFFFFF",
+          "#FFD166"
+        ],
+        "at": [
+          22.6,
+          25.6
+        ]
+      },
+      {
+        "type": "end",
+        "at": [
+          25.4,
+          99
+        ],
+        "handle": "@the.ai.gal",
+        "tagline": "Research-backed AI. No hype.",
+        "cta": "Follow for more of Your Brain on AI",
+        "source": [
+          "Source: Costello, Pennycook & Rand, Science (2024)",
+          "\"Durably reducing conspiracy beliefs through dialogues with AI\""
+        ]
+      }
+    ]
+  }
+}

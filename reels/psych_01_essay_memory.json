@@ -1,0 +1,148 @@
+{
+  "name": "psych_01_essay_memory",
+  "template": "data_story",
+  "duration_s": 26.0,
+  "fps": 30,
+  "seed": 21,
+  "palette": [
+    "#0B0A1F",
+    "#A78BFA",
+    "#FF8FB1",
+    "#FFFFFF"
+  ],
+  "text": [
+    "83%",
+    "couldn't quote their own essay",
+    "minutes after writing it"
+  ],
+  "params": {
+    "background": "brain",
+    "dim": 0.32,
+    "mood": "calm",
+    "hook_s": [
+      0,
+      3.2
+    ],
+    "beats": [
+      {
+        "type": "text",
+        "lines": [
+          "MIT tracked 54 people's brains",
+          "while they wrote essays",
+          "ChatGPT  vs  Google  vs  no tools"
+        ],
+        "sizes": [
+          0.95,
+          0.95,
+          0.62
+        ],
+        "at": [
+          3.0,
+          6.8
+        ]
+      },
+      {
+        "type": "stat",
+        "kicker": "MIT MEDIA LAB  -  EEG STUDY  -  2025",
+        "value": 83,
+        "suffix": "%",
+        "ring": 0.83,
+        "label": [
+          "of the ChatGPT group",
+          "couldn't quote a sentence they'd just written"
+        ],
+        "at": [
+          6.6,
+          11.6
+        ]
+      },
+      {
+        "type": "bars",
+        "kicker": "COULDN'T QUOTE THEIR OWN ESSAY",
+        "items": [
+          {
+            "label": "ChatGPT",
+            "value": 83,
+            "suffix": "%"
+          },
+          {
+            "label": "Google search",
+            "value": 11,
+            "suffix": "%"
+          },
+          {
+            "label": "Brain only",
+            "value": 11,
+            "suffix": "%"
+          }
+        ],
+        "label": [
+          "ChatGPT users also showed",
+          "the lowest brain engagement"
+        ],
+        "at": [
+          11.4,
+          16.4
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "When AI writes it,",
+          "your brain doesn't store it",
+          "Small study, not yet peer-reviewed"
+        ],
+        "sizes": [
+          1.0,
+          1.0,
+          0.5
+        ],
+        "colors": [
+          "#FFFFFF",
+          "#A78BFA",
+          "#B8C0CC"
+        ],
+        "at": [
+          16.2,
+          20.0
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "Write first.",
+          "Then let AI edit."
+        ],
+        "sizes": [
+          1.25,
+          1.25
+        ],
+        "colors": [
+          "#FFFFFF",
+          "#FF8FB1"
+        ],
+        "at": [
+          19.8,
+          22.8
+        ]
+      },
+      {
+        "type": "end",
+        "at": [
+          22.6,
+          99
+        ],
+        "handle": "@the.ai.gal",
+        "tagline": "Research-backed AI. No hype.",
+        "cta": "Follow for more of Your Brain on AI",
+        "source": [
+          "Source: Kosmyna et al., MIT Media Lab (2025)",
+          "\"Your Brain on ChatGPT\" - preprint, n=54"
+        ]
+      }
+    ],
+    "bg_params": {
+      "tissue": "#C48A9A"
+    }
+  }
+}

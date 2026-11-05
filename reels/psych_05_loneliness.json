@@ -1,0 +1,140 @@
+{
+  "name": "psych_05_loneliness",
+  "template": "data_story",
+  "duration_s": 24.8,
+  "fps": 30,
+  "seed": 19,
+  "palette": [
+    "#070B18",
+    "#7AA2FF",
+    "#FFB86B",
+    "#FFFFFF"
+  ],
+  "text": [
+    "LONELY?",
+    "the heaviest ChatGPT users",
+    "reported the most loneliness"
+  ],
+  "params": {
+    "background": "neon_orb",
+    "dim": 0.55,
+    "mood": "warm",
+    "hook_s": [
+      0,
+      3.2
+    ],
+    "beats": [
+      {
+        "type": "text",
+        "lines": [
+          "OpenAI + MIT studied",
+          "how people use ChatGPT emotionally"
+        ],
+        "sizes": [
+          0.95,
+          0.8
+        ],
+        "at": [
+          3.0,
+          6.8
+        ]
+      },
+      {
+        "type": "stat",
+        "kicker": "OPENAI + MIT MEDIA LAB  -  2025",
+        "value": 40,
+        "suffix": "M",
+        "ring": null,
+        "label": [
+          "conversations analyzed",
+          "+ a 4-week study of 981 people"
+        ],
+        "at": [
+          6.6,
+          11.6
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "More daily use =",
+          "more loneliness, more dependence",
+          "less time with real people"
+        ],
+        "sizes": [
+          1.0,
+          0.8,
+          0.8
+        ],
+        "colors": [
+          "#FFFFFF",
+          "#FFB86B",
+          "#7AA2FF"
+        ],
+        "at": [
+          11.4,
+          15.2
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "But it's a correlation",
+          "Lonely people may simply",
+          "reach for AI more"
+        ],
+        "sizes": [
+          1.0,
+          0.8,
+          0.8
+        ],
+        "colors": [
+          "#FFB86B",
+          "#FFFFFF",
+          "#FFFFFF"
+        ],
+        "at": [
+          15.0,
+          18.8
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "Use AI as a tool,",
+          "not a replacement for people"
+        ],
+        "sizes": [
+          1.25,
+          1.25
+        ],
+        "colors": [
+          "#FFFFFF",
+          "#FFB86B"
+        ],
+        "at": [
+          18.6,
+          21.6
+        ]
+      },
+      {
+        "type": "end",
+        "at": [
+          21.4,
+          99
+        ],
+        "handle": "@the.ai.gal",
+        "tagline": "Research-backed AI. No hype.",
+        "cta": "Follow for more of Your Brain on AI",
+        "source": [
+          "Sources: OpenAI & MIT Media Lab studies (2025)",
+          "preprints, not yet peer-reviewed"
+        ]
+      }
+    ],
+    "bg_params": {
+      "rings": 2,
+      "sparks": 25
+    }
+  }
+}

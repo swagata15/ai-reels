@@ -1,0 +1,167 @@
+{
+  "name": "ai_11_flattery",
+  "template": "data_story",
+  "duration_s": 26.8,
+  "fps": 30,
+  "seed": 14,
+  "palette": [
+    "#1A0A10",
+    "#FF7AA2",
+    "#FFD1DC",
+    "#FFFFFF"
+  ],
+  "text": [
+    "YOUR AI",
+    "is flattering you"
+  ],
+  "params": {
+    "background": "neon_orb",
+    "dim": 0.55,
+    "mood": "warm",
+    "hook_s": [
+      0,
+      3.2
+    ],
+    "beats": [
+      {
+        "type": "text",
+        "lines": [
+          "April 2025:",
+          "OpenAI rolled back",
+          "a ChatGPT update"
+        ],
+        "sizes": [
+          0.8,
+          1.1,
+          1.1
+        ],
+        "colors": [
+          "#FF7AA2",
+          "#FFFFFF",
+          "#FFFFFF"
+        ],
+        "at": [
+          3.0,
+          6.8
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "Why? Its replies were",
+          "\"overly supportive",
+          "but disingenuous\""
+        ],
+        "sizes": [
+          0.85,
+          1.05,
+          1.05
+        ],
+        "colors": [
+          "#FFFFFF",
+          "#FFD1DC",
+          "#FFD1DC"
+        ],
+        "at": [
+          6.6,
+          10.4
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "The cause: training too much",
+          "on short-term thumbs-up feedback"
+        ],
+        "sizes": [
+          0.85,
+          0.75
+        ],
+        "colors": [
+          "#FFFFFF",
+          "#FF7AA2"
+        ],
+        "at": [
+          10.2,
+          14.0
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "We reward what feels good",
+          "so AI learns to agree"
+        ],
+        "sizes": [
+          0.95,
+          1.1
+        ],
+        "colors": [
+          "#FFFFFF",
+          "#FF7AA2"
+        ],
+        "at": [
+          13.8,
+          17.6
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "Try this prompt:",
+          "\"Argue against my idea\""
+        ],
+        "sizes": [
+          0.8,
+          1.15
+        ],
+        "colors": [
+          "#B8C0CC",
+          "#FFFFFF"
+        ],
+        "at": [
+          17.4,
+          20.8
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "Get the truth,",
+          "not applause"
+        ],
+        "sizes": [
+          1.25,
+          1.25
+        ],
+        "colors": [
+          "#FFFFFF",
+          "#FF7AA2"
+        ],
+        "at": [
+          20.6,
+          23.6
+        ]
+      },
+      {
+        "type": "end",
+        "at": [
+          23.4,
+          99
+        ],
+        "handle": "@the.ai.gal",
+        "tagline": "Research-backed AI. No hype.",
+        "cta": "Follow for more of Your Brain on AI",
+        "source": [
+          "Source: OpenAI, \"Sycophancy in GPT-4o\" (Apr 2025)",
+          "coverage: NBC News, VentureBeat"
+        ]
+      }
+    ],
+    "hook_size": 3.0,
+    "bg_params": {
+      "rings": 3,
+      "sparks": 35
+    }
+  }
+}

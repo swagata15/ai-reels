@@ -1,0 +1,155 @@
+{
+  "name": "ai_10_hallucinations",
+  "template": "data_story",
+  "duration_s": 27.6,
+  "fps": 30,
+  "seed": 20,
+  "palette": [
+    "#0D0718",
+    "#C084FC",
+    "#F472B6",
+    "#FFFFFF"
+  ],
+  "text": [
+    "WHY AI",
+    "confidently makes things up"
+  ],
+  "params": {
+    "background": "network",
+    "dim": 0.32,
+    "mood": "tense",
+    "hook_s": [
+      0,
+      3.2
+    ],
+    "beats": [
+      {
+        "type": "text",
+        "lines": [
+          "AI models are graded",
+          "like a multiple-choice test"
+        ],
+        "sizes": [
+          1.0,
+          1.0
+        ],
+        "colors": [
+          "#FFFFFF",
+          "#C084FC"
+        ],
+        "at": [
+          3.0,
+          6.8
+        ]
+      },
+      {
+        "type": "stat",
+        "kicker": "GUESS SOMEONE'S BIRTHDAY",
+        "value": 365,
+        "prefix": "1 in ",
+        "ring": null,
+        "label": [
+          "chance of scoring a point",
+          "by guessing"
+        ],
+        "at": [
+          6.6,
+          11.6
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "Say \"I don't know\"?",
+          "0 points. Every time."
+        ],
+        "sizes": [
+          1.0,
+          1.1
+        ],
+        "colors": [
+          "#FFFFFF",
+          "#F472B6"
+        ],
+        "at": [
+          11.4,
+          15.2
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "So models learn",
+          "to BLUFF"
+        ],
+        "sizes": [
+          1.0,
+          1.8
+        ],
+        "colors": [
+          "#FFFFFF",
+          "#F472B6"
+        ],
+        "at": [
+          15.0,
+          18.0
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "The proposed fix:",
+          "penalize confident errors",
+          "reward honest uncertainty"
+        ],
+        "sizes": [
+          0.8,
+          0.95,
+          0.95
+        ],
+        "colors": [
+          "#C084FC",
+          "#FFFFFF",
+          "#FFFFFF"
+        ],
+        "at": [
+          17.8,
+          21.6
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "Ask your AI:",
+          "\"How sure are you?\""
+        ],
+        "sizes": [
+          1.25,
+          1.25
+        ],
+        "colors": [
+          "#FFFFFF",
+          "#C084FC"
+        ],
+        "at": [
+          21.4,
+          24.4
+        ]
+      },
+      {
+        "type": "end",
+        "at": [
+          24.2,
+          99
+        ],
+        "handle": "@the.ai.gal",
+        "tagline": "Research-backed AI. No hype.",
+        "cta": "Follow for AI that actually makes sense",
+        "source": [
+          "Source: Kalai et al., OpenAI (2025)",
+          "\"Why Language Models Hallucinate\""
+        ]
+      }
+    ]
+  }
+}

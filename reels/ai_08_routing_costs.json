@@ -1,0 +1,163 @@
+{
+  "name": "ai_08_routing_costs",
+  "template": "data_story",
+  "duration_s": 29.6,
+  "fps": 30,
+  "seed": 19,
+  "palette": [
+    "#05140D",
+    "#00D084",
+    "#FFD60A",
+    "#FFFFFF"
+  ],
+  "text": [
+    "~10x",
+    "cheaper every year",
+    "for the same AI quality"
+  ],
+  "params": {
+    "background": "network",
+    "dim": 0.32,
+    "mood": "bright",
+    "hook_s": [
+      0,
+      3.2
+    ],
+    "beats": [
+      {
+        "type": "text",
+        "lines": [
+          "Companies are now",
+          "cutting AI bills further",
+          "with ROUTING"
+        ],
+        "sizes": [
+          0.9,
+          0.9,
+          1.4
+        ],
+        "colors": [
+          "#FFFFFF",
+          "#FFFFFF",
+          "#FFD60A"
+        ],
+        "at": [
+          3.0,
+          6.8
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "Easy question -> small, cheap model",
+          "Hard question -> big model"
+        ],
+        "sizes": [
+          0.75,
+          0.75
+        ],
+        "colors": [
+          "#00D084",
+          "#FFD60A"
+        ],
+        "at": [
+          6.6,
+          10.4
+        ]
+      },
+      {
+        "type": "stat",
+        "kicker": "UC BERKELEY  -  ROUTELLM  -  2024",
+        "value": 95,
+        "suffix": "%",
+        "ring": 0.95,
+        "label": [
+          "of GPT-4's quality kept",
+          "while routing most questions elsewhere"
+        ],
+        "at": [
+          10.2,
+          15.2
+        ]
+      },
+      {
+        "type": "bars",
+        "kicker": "SHARE OF QUESTIONS SENT TO GPT-4",
+        "items": [
+          {
+            "label": "No router",
+            "value": 100,
+            "suffix": "%"
+          },
+          {
+            "label": "With a router",
+            "value": 26,
+            "suffix": "%"
+          }
+        ],
+        "label": [
+          "Up to 85% cheaper on one benchmark"
+        ],
+        "at": [
+          15.0,
+          20.0
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "Next levers:",
+          "small language models",
+          "+ caching repeated prompts"
+        ],
+        "sizes": [
+          0.8,
+          1.0,
+          1.0
+        ],
+        "colors": [
+          "#FFD60A",
+          "#FFFFFF",
+          "#FFFFFF"
+        ],
+        "at": [
+          19.8,
+          23.6
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "Not every question",
+          "needs the biggest model"
+        ],
+        "sizes": [
+          1.25,
+          1.25
+        ],
+        "colors": [
+          "#FFFFFF",
+          "#00D084"
+        ],
+        "at": [
+          23.4,
+          26.4
+        ]
+      },
+      {
+        "type": "end",
+        "at": [
+          26.2,
+          99
+        ],
+        "handle": "@the.ai.gal",
+        "tagline": "Research-backed AI. No hype.",
+        "cta": "Follow for AI that actually makes sense",
+        "source": [
+          "Sources: LMSYS / UC Berkeley RouteLLM (2024)",
+          "a16z \"LLMflation\" (2024) - savings vary by task"
+        ]
+      }
+    ]
+  }
+}

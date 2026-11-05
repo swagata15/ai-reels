@@ -39,6 +39,9 @@ def main() -> None:
     ap.add_argument("--loops", type=int, default=1, help="repeat a seamless loop N times")
     ap.add_argument("--cover-frame", type=int, help="frame number for the cover image (default: middle)")
     ap.add_argument("--crf", type=int, default=17)
+    ap.add_argument("--no-sfx", action="store_true", help="skip the generated sound effects track")
+    ap.add_argument("--sfx-gain", type=float, default=1.0, help="sound-effects volume (with --music, try 0.8)")
+    ap.add_argument("--music-gain", type=float, default=0.55, help="music volume under the sound effects")
     ap.add_argument("--out", help="output mp4 path (default <render_dir>/<name>_reel.mp4)")
     args = ap.parse_args()
 
@@ -87,12 +90,37 @@ def main() -> None:
         graph += ";[base]null"
     graph += f",{fmt}[v]"
     maps = ["-map", "[v]"]
+
+    # Audio: generated SFX (if the template wrote cues) and/or a music bed.
+    audio_labels = []
+    cues = render_dir / "sfx_cues.json"
+    if cues.exists() and not args.no_sfx:
+        try:
+            sys.path.insert(0, str(Path(__file__).resolve().parent))
+            import sfx
+
+            wav = sfx.render(cues, render_dir / "sfx.wav")
+            offset = (first - 1) / args.fps  # partial renders start later in the timeline
+            cmd += ["-i", str(wav)]
+            graph += (f";[{audio_idx}:a]atrim={offset:.3f}:{offset + duration:.3f},asetpts=PTS-STARTPTS,"
+                      f"volume={args.sfx_gain}[sfx]")
+            audio_labels.append("[sfx]")
+            audio_idx += 1
+        except ImportError:
+            print("[post] numpy not installed - skipping sound effects (pip install numpy)")
     if args.music:
         cmd += ["-ss", str(args.music_start), "-i", args.music]
         fade = min(1.5, duration / 4)
         graph += (f";[{audio_idx}:a]atrim=0:{duration:.3f},afade=t=in:d=0.3,"
-                  f"afade=t=out:st={duration - fade:.3f}:d={fade:.3f},aresample=48000[a]")
-        maps += ["-map", "[a]", "-c:a", "aac", "-b:a", "192k", "-ac", "2"]
+                  f"afade=t=out:st={duration - fade:.3f}:d={fade:.3f},aresample=48000,"
+                  f"volume={args.music_gain if audio_labels else 1.0}[mus]")
+        audio_labels.append("[mus]")
+    if audio_labels:
+        if len(audio_labels) == 2:
+            graph += f";{''.join(audio_labels)}amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.95[a]"
+        else:
+            graph += f";{audio_labels[0]}anull[a]"
+        maps += ["-map", "[a]", "-c:a", "aac", "-b:a", "192k", "-ac", "2", "-ar", "48000"]
     cmd += ["-filter_complex", graph, *maps]
 
     cmd += ["-c:v", "libx264", "-profile:v", "high", "-preset", "slow", "-crf", str(args.crf),

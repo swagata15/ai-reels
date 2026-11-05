@@ -1,0 +1,152 @@
+{
+  "name": "ai_12_energy",
+  "template": "data_story",
+  "duration_s": 28.2,
+  "fps": 30,
+  "seed": 12,
+  "palette": [
+    "#031018",
+    "#22D3EE",
+    "#A3E635",
+    "#FFFFFF"
+  ],
+  "text": [
+    "5 DROPS",
+    "of water per AI prompt?"
+  ],
+  "params": {
+    "background": "crystal_loop",
+    "dim": 0.45,
+    "mood": "calm",
+    "hook_s": [
+      0,
+      3.2
+    ],
+    "beats": [
+      {
+        "type": "text",
+        "lines": [
+          "Google measured its own",
+          "Gemini text prompts"
+        ],
+        "sizes": [
+          0.95,
+          0.95
+        ],
+        "colors": [
+          "#FFFFFF",
+          "#22D3EE"
+        ],
+        "at": [
+          3.0,
+          6.2
+        ]
+      },
+      {
+        "type": "stat",
+        "kicker": "ENERGY  -  MEDIAN TEXT PROMPT",
+        "value": 0.24,
+        "decimals": 2,
+        "suffix": " Wh",
+        "ring": null,
+        "label": [
+          "about 9 seconds of TV"
+        ],
+        "at": [
+          6.0,
+          10.4
+        ]
+      },
+      {
+        "type": "stat",
+        "kicker": "WATER  -  MEDIAN TEXT PROMPT",
+        "value": 0.26,
+        "decimals": 2,
+        "suffix": " mL",
+        "ring": null,
+        "label": [
+          "about 5 drops"
+        ],
+        "at": [
+          10.2,
+          14.6
+        ]
+      },
+      {
+        "type": "stat",
+        "kicker": "IN 12 MONTHS",
+        "value": 33,
+        "suffix": "x",
+        "ring": null,
+        "label": [
+          "less energy per prompt"
+        ],
+        "at": [
+          14.4,
+          18.6
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "Caveats:",
+          "Google's own numbers, text only",
+          "critics say indirect water is missing"
+        ],
+        "sizes": [
+          0.8,
+          0.75,
+          0.75
+        ],
+        "colors": [
+          "#A3E635",
+          "#FFFFFF",
+          "#FFFFFF"
+        ],
+        "at": [
+          18.4,
+          22.2
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "One prompt is tiny.",
+          "Billions add up."
+        ],
+        "sizes": [
+          1.25,
+          1.25
+        ],
+        "colors": [
+          "#FFFFFF",
+          "#22D3EE"
+        ],
+        "at": [
+          22.0,
+          25.0
+        ]
+      },
+      {
+        "type": "end",
+        "at": [
+          24.8,
+          99
+        ],
+        "handle": "@the.ai.gal",
+        "tagline": "Research-backed AI. No hype.",
+        "cta": "Follow for more of Your Brain on AI",
+        "source": [
+          "Source: Google technical paper (Aug 2025)",
+          "arXiv:2508.15734 - median Gemini Apps text prompt"
+        ]
+      }
+    ],
+    "hook_size": 2.6,
+    "bg_params": {
+      "grid": 10,
+      "amplitude": 0.6,
+      "wave": 1.0
+    }
+  }
+}

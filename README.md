@@ -21,6 +21,9 @@ Instagram-ready MP4.
 | `CLAUDE.md` | Reel rules (9:16, safe zones, hook timing) that Claude follows when building |
 | `studio/` | Python library that runs inside Blender: render setup, materials, templates |
 | `studio/templates/` | `realistic_brain` (cinematic, Cycles), `holo_brain`, `neon_orb`, `kinetic_title`, `crystal_loop` |
+| `studio/templates/data_story.py` | Research-stat reels: hook -> counting ring / bar charts -> takeaway -> source + handle end card |
+| `scripts/sfx.py` | Generates original, copyright-free sound effects synced to each reel's beats (needs `numpy`) |
+| `captions/` | Ready-to-post Instagram captions with sources and caveats |
 | `studio/text.py` | Kinetic text blocks + a separate overlay pass so text/HUD stays sharp over depth of field |
 | `reels/*.json` | Reel specs: template, duration, palette, on-screen text, params |
 | `scripts/render_reel.py` | Headless render: spec to PNG frames |

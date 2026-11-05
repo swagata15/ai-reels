@@ -1,0 +1,166 @@
+{
+  "name": "psych_06_overconfidence",
+  "template": "data_story",
+  "duration_s": 28.4,
+  "fps": 30,
+  "seed": 23,
+  "palette": [
+    "#0E0A05",
+    "#FFB000",
+    "#FF6B35",
+    "#FFFFFF"
+  ],
+  "text": [
+    "AI made everyone",
+    "OVERCONFIDENT"
+  ],
+  "params": {
+    "background": "crystal_loop",
+    "dim": 0.45,
+    "mood": "bright",
+    "hook_s": [
+      0,
+      3.2
+    ],
+    "beats": [
+      {
+        "type": "text",
+        "lines": [
+          "~500 people solved",
+          "law-school logic puzzles",
+          "half of them with ChatGPT"
+        ],
+        "sizes": [
+          0.95,
+          0.95,
+          0.75
+        ],
+        "at": [
+          3.0,
+          6.8
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "AI raised their scores...",
+          "but they overestimated",
+          "how well they did"
+        ],
+        "sizes": [
+          1.0,
+          0.9,
+          0.9
+        ],
+        "colors": [
+          "#FFFFFF",
+          "#FFB000",
+          "#FFB000"
+        ],
+        "at": [
+          6.6,
+          10.4
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "The Dunning-Kruger effect",
+          "DISAPPEARED",
+          "everyone overrated themselves"
+        ],
+        "sizes": [
+          0.9,
+          1.4,
+          0.75
+        ],
+        "colors": [
+          "#FFFFFF",
+          "#FF6B35",
+          "#FFFFFF"
+        ],
+        "at": [
+          10.2,
+          14.0
+        ]
+      },
+      {
+        "type": "stat",
+        "kicker": "HOW OFTEN MOST USERS PROMPTED",
+        "value": 1,
+        "suffix": "x",
+        "ring": null,
+        "count_s": 0.6,
+        "label": [
+          "per question",
+          "no double-checking"
+        ],
+        "at": [
+          13.8,
+          18.8
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "And AI-savvy users",
+          "were the MOST overconfident",
+          "(a correlation)"
+        ],
+        "sizes": [
+          0.9,
+          1.0,
+          0.5
+        ],
+        "colors": [
+          "#FFFFFF",
+          "#FFB000",
+          "#B8C0CC"
+        ],
+        "at": [
+          18.6,
+          22.4
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "Ask twice.",
+          "Check once more."
+        ],
+        "sizes": [
+          1.25,
+          1.25
+        ],
+        "colors": [
+          "#FFFFFF",
+          "#FFB000"
+        ],
+        "at": [
+          22.2,
+          25.2
+        ]
+      },
+      {
+        "type": "end",
+        "at": [
+          25.0,
+          99
+        ],
+        "handle": "@the.ai.gal",
+        "tagline": "Research-backed AI. No hype.",
+        "cta": "Follow for more of Your Brain on AI",
+        "source": [
+          "Source: Aalto University,",
+          "Computers in Human Behavior (2025)"
+        ]
+      }
+    ],
+    "hook_size": 1.6,
+    "bg_params": {
+      "grid": 9,
+      "amplitude": 1.1,
+      "wave": 1.6
+    }
+  }
+}

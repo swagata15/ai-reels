@@ -1,0 +1,158 @@
+{
+  "name": "psych_04_persuasion",
+  "template": "data_story",
+  "duration_s": 28.4,
+  "fps": 30,
+  "seed": 19,
+  "palette": [
+    "#140812",
+    "#FF4D6D",
+    "#FFB3C1",
+    "#FFFFFF"
+  ],
+  "text": [
+    "64%",
+    "of debates won by AI",
+    "when it knew who you were"
+  ],
+  "params": {
+    "background": "neon_orb",
+    "dim": 0.55,
+    "mood": "tense",
+    "hook_s": [
+      0,
+      3.2
+    ],
+    "beats": [
+      {
+        "type": "text",
+        "lines": [
+          "900 people debated",
+          "a human or GPT-4",
+          "on hot-button issues"
+        ],
+        "sizes": [
+          0.95,
+          0.95,
+          0.75
+        ],
+        "at": [
+          3.0,
+          6.8
+        ]
+      },
+      {
+        "type": "stat",
+        "kicker": "NATURE HUMAN BEHAVIOUR  -  2025",
+        "value": 64,
+        "suffix": "%",
+        "ring": 0.64,
+        "label": [
+          "of debates won by GPT-4",
+          "when given basic personal info"
+        ],
+        "at": [
+          6.6,
+          11.6
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "Age. Gender. Politics.",
+          "That's all it needed."
+        ],
+        "sizes": [
+          1.0,
+          1.0
+        ],
+        "colors": [
+          "#FFB3C1",
+          "#FFFFFF"
+        ],
+        "at": [
+          11.4,
+          15.2
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "Without that info?",
+          "No better than a human"
+        ],
+        "sizes": [
+          0.9,
+          1.1
+        ],
+        "colors": [
+          "#B8C0CC",
+          "#FFFFFF"
+        ],
+        "at": [
+          15.0,
+          18.8
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "Your data is",
+          "persuasion fuel",
+          "(won 64% of debates - not \"64% more persuasive\")"
+        ],
+        "sizes": [
+          1.0,
+          1.3,
+          0.48
+        ],
+        "colors": [
+          "#FFFFFF",
+          "#FF4D6D",
+          "#B8C0CC"
+        ],
+        "at": [
+          18.6,
+          22.4
+        ]
+      },
+      {
+        "type": "text",
+        "lines": [
+          "Notice when AI",
+          "is trying to convince you"
+        ],
+        "sizes": [
+          1.25,
+          1.25
+        ],
+        "colors": [
+          "#FFFFFF",
+          "#FF4D6D"
+        ],
+        "at": [
+          22.2,
+          25.2
+        ]
+      },
+      {
+        "type": "end",
+        "at": [
+          25.0,
+          99
+        ],
+        "handle": "@the.ai.gal",
+        "tagline": "Research-backed AI. No hype.",
+        "cta": "Follow for more of Your Brain on AI",
+        "source": [
+          "Source: Salvi et al., Nature Human Behaviour (2025)",
+          "\"On the conversational persuasiveness of GPT-4\""
+        ]
+      }
+    ],
+    "bg_params": {
+      "rings": 3,
+      "sparks": 30
+    }
+  }
+}

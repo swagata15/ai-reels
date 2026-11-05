@@ -27,6 +27,8 @@ $SUDO apt-get update -qq
 $SUDO DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg git wget xz-utils zip python3 \
   libxi6 libxkbcommon0 libsm6 libxrender1 libxxf86vm1 libxfixes3 libgl1 libegl1 > /dev/null
 
+python3 -c "import numpy" 2>/dev/null || python3 -m pip install -q numpy  # for generated sound effects
+
 echo "==> project"
 mkdir -p "$WORK" && cd "$WORK"
 if [ -d ai-reels/.git ]; then

@@ -42,6 +42,12 @@ driven through the **Blender MCP** server (`blender-mcp`, configured in `.mcp.js
 - Always confirm the scene with `get_scene_info` and a viewport screenshot before rendering.
 - Don't use copyrighted characters, logos or music. Use original designs only.
 
+## Data-story reels (`data_story` template)
+- 20-30 s: hook (0-3 s) -> study setup -> stat (ring counter) / bars -> meaning + caveat -> takeaway -> end card.
+- Every number must come from a primary source; put the source on the end card and the caveat on screen or in the caption.
+- Sound effects are generated automatically from beat cues (`sfx_cues.json`); `--no-sfx` disables them.
+- Handle for end cards: @the.ai.gal
+
 ## Accuracy
 News-style reels must match what actually happened. Use footnotes ("*on a mouse"), put caveats
 in the caption, cite the source, and never present speculation as fact.
