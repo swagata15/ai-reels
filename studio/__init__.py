@@ -15,7 +15,7 @@ from pathlib import Path
 from .spec import ReelSpec
 
 ROOT = Path(__file__).resolve().parent.parent
-TEMPLATES = ("neon_orb", "kinetic_title", "crystal_loop")
+TEMPLATES = ("neon_orb", "kinetic_title", "crystal_loop", "holo_brain", "realistic_brain")
 
 
 def _resolve(spec_or_path) -> ReelSpec:

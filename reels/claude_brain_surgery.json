@@ -1,0 +1,19 @@
+{
+  "name": "claude_brain_surgery",
+  "template": "realistic_brain",
+  "duration_s": 9,
+  "fps": 30,
+  "seed": 5,
+  "palette": ["#04050B", "#3DE8FF", "#4F7BFF", "#FF4FA3"],
+  "text": ["CLAUDE JUST DID", "BRAIN SURGERY*", "*on a mouse - and it chose the therapy"],
+  "params": {
+    "fstop": 1.2,
+    "hud": [
+      ["ANALYZING 19 GENE THERAPIES...", 0.3, 2.3],
+      ["SELECTED: GABA-BOOSTING THERAPY", 2.4, 4.4],
+      ["TARGET: LATERAL ENTORHINAL CORTEX", 4.5, 6.4],
+      ["INJECTING 250 nL", 6.5, 8.1],
+      ["PROCEDURE COMPLETE", 8.2, 99]
+    ]
+  }
+}

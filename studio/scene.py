@@ -11,6 +11,8 @@ from .spec import REEL_HEIGHT, REEL_WIDTH, ReelSpec, hex_to_rgba
 def reset_scene() -> bpy.types.Scene:
     """Start from an empty scene (keeps the Blender UI usable when run via MCP)."""
     scene = bpy.context.scene
+    for extra in [s for s in bpy.data.scenes if s is not scene and "reel_pass" in s]:
+        bpy.data.scenes.remove(extra)
     for obj in list(bpy.data.objects):
         bpy.data.objects.remove(obj, do_unlink=True)
     for coll in (bpy.data.meshes, bpy.data.materials, bpy.data.curves, bpy.data.cameras, bpy.data.lights):

@@ -26,6 +26,8 @@ def main():
     ap.add_argument("--out", help="output directory (default output/<name>)")
     ap.add_argument("--engine", choices=["eevee", "cycles"], default="eevee",
                     help="cycles works on CPU-only machines (slower)")
+    ap.add_argument("--samples", type=int, help="override Cycles samples for the main pass")
+    ap.add_argument("--skip-main", action="store_true", help="only render overlay (text/HUD) passes")
     args = ap.parse_args(argv)
 
     spec = ReelSpec.load(args.spec)
@@ -34,17 +36,23 @@ def main():
     studio.build(spec, output_dir=args.out)
 
     scene = bpy.context.scene
-    if args.engine == "cycles":
-        scene.render.engine = "CYCLES"
-        scene.cycles.device = "CPU"
-        scene.cycles.samples = 24 if spec.quality == "draft" else 128
-        scene.cycles.use_denoising = True
-    if args.frames:
-        lo, _, hi = args.frames.partition("-")
-        scene.frame_start = int(lo)
-        scene.frame_end = int(hi or lo)
-    print(f"[reels] rendering {spec.name}: frames {scene.frame_start}-{scene.frame_end} -> {scene.render.filepath}")
-    bpy.ops.render.render(animation=True)
+    passes = [scene] + [s for s in bpy.data.scenes if s.get("reel_pass") == "overlay"]
+    for sc in passes:
+        overlay = sc is not scene
+        if args.engine == "cycles" or sc.render.engine == "CYCLES":
+            sc.render.engine = "CYCLES"
+            sc.cycles.device = "CPU"
+            sc.cycles.samples = 4 if overlay else (args.samples or (32 if spec.quality == "draft" else 128))
+            sc.cycles.use_denoising = not overlay
+        if args.frames:
+            lo, _, hi = args.frames.partition("-")
+            sc.frame_start = int(lo)
+            sc.frame_end = int(hi or lo)
+    if args.skip_main:
+        passes = passes[1:]
+    for sc in passes:
+        print(f"[reels] rendering {spec.name} [{sc.name}]: frames {sc.frame_start}-{sc.frame_end} -> {sc.render.filepath}", flush=True)
+        bpy.ops.render.render(animation=True, scene=sc.name)
     print("[reels] done")
 
 

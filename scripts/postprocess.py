@@ -53,10 +53,13 @@ def main() -> None:
     name = render_dir.name
     out = Path(args.out) if args.out else render_dir / f"{name}_reel.mp4"
 
+    overlay_dir = render_dir / "frames_overlay"
+    has_overlay = bool(glob.glob(str(overlay_dir / "frame_*.png")))
+
     # Video filter chain. Frames may be draft (540x960); always deliver 1080x1920.
     vf = ["scale=1080:1920:flags=lanczos"]
     if args.glow:
-        vf.append("split[base][g];[g]curves=all='0/0 0.6/0 1/1',gblur=sigma=28[bloom];[base][bloom]blend=all_mode=screen")
+        vf.append("split[gb][gg];[gg]curves=all='0/0 0.6/0 1/1',gblur=sigma=28[bloom];[gb][bloom]blend=all_mode=screen")
     if args.grain:
         vf.append("noise=alls=4:allf=t")
     vf.append("format=yuv420p")
@@ -65,17 +68,32 @@ def main() -> None:
     if args.loops > 1:
         cmd += ["-stream_loop", str(args.loops - 1)]
     cmd += ["-framerate", str(args.fps), "-start_number", str(first), "-i", str(render_dir / "frames" / "frame_%04d.png")]
+    video_in = "[0:v]"
+    pre = ""
+    if has_overlay:
+        # Text/HUD pass: composited after glow on the 3D, then given its own soft glow.
+        if args.loops > 1:
+            cmd += ["-stream_loop", str(args.loops - 1)]
+        cmd += ["-framerate", str(args.fps), "-start_number", str(first), "-i", str(overlay_dir / "frame_%04d.png")]
+        pre = "[1:v]scale=1080:1920:flags=lanczos,split[ov][ovg];[ovg]gblur=sigma=10[ovb];"
+    audio_idx = 2 if has_overlay else 1
 
     duration = len(frames) / args.fps * args.loops
+    fmt = vf.pop()  # keep format=yuv420p last
+    graph = f"{pre}[0:v]{','.join(vf)}[base]"
+    if has_overlay:
+        graph += ";[base][ovb]overlay[b1];[b1][ov]overlay"
+    else:
+        graph += ";[base]null"
+    graph += f",{fmt}[v]"
+    maps = ["-map", "[v]"]
     if args.music:
         cmd += ["-ss", str(args.music_start), "-i", args.music]
         fade = min(1.5, duration / 4)
-        cmd += ["-filter_complex",
-                f"[0:v]{','.join(vf)}[v];[1:a]atrim=0:{duration:.3f},afade=t=in:d=0.3,"
-                f"afade=t=out:st={duration - fade:.3f}:d={fade:.3f},aresample=48000[a]",
-                "-map", "[v]", "-map", "[a]", "-c:a", "aac", "-b:a", "192k", "-ac", "2"]
-    else:
-        cmd += ["-vf", ",".join(vf)]
+        graph += (f";[{audio_idx}:a]atrim=0:{duration:.3f},afade=t=in:d=0.3,"
+                  f"afade=t=out:st={duration - fade:.3f}:d={fade:.3f},aresample=48000[a]")
+        maps += ["-map", "[a]", "-c:a", "aac", "-b:a", "192k", "-ac", "2"]
+    cmd += ["-filter_complex", graph, *maps]
 
     cmd += ["-c:v", "libx264", "-profile:v", "high", "-preset", "slow", "-crf", str(args.crf),
             "-r", str(args.fps), "-g", str(args.fps * 2), "-movflags", "+faststart",

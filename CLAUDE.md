@@ -13,7 +13,9 @@ driven through the **Blender MCP** server (`blender-mcp`, configured in `.mcp.js
 
 ## How to build a reel
 1. Write or edit a spec in `reels/<name>.json` (`template`, `duration_s`, `palette`, `text`, `params`).
-   Templates: `neon_orb`, `kinetic_title`, `crystal_loop` (see docstrings in `studio/templates/`).
+   Templates: `realistic_brain`, `holo_brain`, `neon_orb`, `kinetic_title`, `crystal_loop`
+   (see docstrings in `studio/templates/`). Put text/HUD in an overlay scene (`studio.text.overlay_scene`)
+   when the main shot uses depth of field.
 2. Build it live in the user's open Blender through MCP with `execute_blender_code`:
    ```python
    import sys, importlib
@@ -39,6 +41,10 @@ driven through the **Blender MCP** server (`blender-mcp`, configured in `.mcp.js
   BlenderMCP sidebar panel. Check with `get_polyhaven_status` before using them.
 - Always confirm the scene with `get_scene_info` and a viewport screenshot before rendering.
 - Don't use copyrighted characters, logos or music. Use original designs only.
+
+## Accuracy
+News-style reels must match what actually happened. Use footnotes ("*on a mouse"), put caveats
+in the caption, cite the source, and never present speculation as fact.
 
 ## Deliver with every reel
 Give the user a caption (hook line + 2-3 lines of value + call to action) and 5-8 relevant hashtags.

@@ -20,7 +20,8 @@ Instagram-ready MP4.
 | `claude_desktop_config.example.json` | The same config for **Claude Desktop** |
 | `CLAUDE.md` | Reel rules (9:16, safe zones, hook timing) that Claude follows when building |
 | `studio/` | Python library that runs inside Blender: render setup, materials, templates |
-| `studio/templates/` | `neon_orb`, `kinetic_title`, `crystal_loop`: seamless-loop reel templates |
+| `studio/templates/` | `realistic_brain` (cinematic, Cycles), `holo_brain`, `neon_orb`, `kinetic_title`, `crystal_loop` |
+| `studio/text.py` | Kinetic text blocks + a separate overlay pass so text/HUD stays sharp over depth of field |
 | `reels/*.json` | Reel specs: template, duration, palette, on-screen text, params |
 | `scripts/render_reel.py` | Headless render: spec to PNG frames |
 | `scripts/postprocess.py` | ffmpeg: frames to 1080x1920 H.264/AAC MP4 with glow, grain, music and a cover image |
@@ -52,6 +53,10 @@ python scripts/postprocess.py output/ai_tools_hook --glow --grain --music music/
 ```
 Or use `make draft R=kinetic_title` and `make reel R=neon_orb MUSIC=music/track.mp3`.
 On a machine without a usable GPU, add `--engine cycles` to the render command.
+Templates with on-screen text/HUD (like `realistic_brain`) also render a transparent
+`frames_overlay/` pass; `postprocess.py` composites it automatically. Use `--samples N` to trade
+quality for speed, and render `realistic_brain` with `--engine cycles` (the brain's crease
+shading needs Cycles).
 
 Output is in `output/<name>/`: `<name>_reel.mp4`, `<name>_cover.jpg` and the `.blend` file.
 
