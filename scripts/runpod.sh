@@ -6,7 +6,7 @@
 #   curl -fsSL https://raw.githubusercontent.com/swagata15/ai-reels/main/scripts/runpod.sh | bash
 #   (private repo: clone first, then: bash ai-reels/scripts/runpod.sh)
 #
-# Options (env vars): REELS="reels/*.json"  JOBS=2  SAMPLES=64  BLENDER_VERSION=5.0.1
+# Options (env vars): REELS="reels/*.json"  STORIES="stories/*.json"  JOBS=2  SAMPLES=64  BLENDER_VERSION=5.0.1
 # Re-running only renders reels that aren't finished yet.
 set -euo pipefail
 
@@ -52,8 +52,19 @@ echo "==> rendering $REELS (jobs=$JOBS, samples=$SAMPLES)"
 python3 scripts/batch.py $REELS --blender "$BLENDER_DIR/blender" --engine cycles \
   --samples "$SAMPLES" --jobs "$JOBS" --post "--glow --grain" || echo "some reels failed - see above"
 
+if [ -n "${STORIES:-}" ]; then
+  for st in $STORIES; do
+    [[ "$st" == *.voice.json ]] && continue
+    voice=$(python3 -c "import json,pathlib,sys;p=pathlib.Path('$st').with_suffix('.voice.json');print(json.loads(p.read_text())['audio'] if p.exists() else '')")
+    echo "==> story $st ${voice:+(voice: $voice)}"
+    python3 scripts/make_story.py "$st" --blender "$BLENDER_DIR/blender" --samples "$SAMPLES" ${voice:+--voice "$voice"} \
+      || echo "story $st failed"
+  done
+  cp output/*_story/*_story.mp4 output/ 2>/dev/null || true
+fi
+
 echo "==> packaging"
 zipname="$WORK/reels_$(date +%Y%m%d_%H%M).zip"
-(cd output && zip -q -j "$zipname" */*_reel.mp4 */*_cover.jpg) && ls -lh "$zipname"
+(cd output && zip -q -j "$zipname" */*_reel.mp4 */*_cover.jpg *_story.mp4 2>/dev/null) && ls -lh "$zipname"
 echo "Download it from the pod's Jupyter file browser ($zipname), or: runpodctl send $zipname"
 echo "total $(( ($(date +%s) - t0) / 60 )) min - remember to STOP the pod when you're done."

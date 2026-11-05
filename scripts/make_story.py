@@ -74,12 +74,16 @@ def main():
     if not args.post_only:
         for shot in story["timed_shots"]:
             d = out / "shots" / f"{shot['index']:02d}_{shot['id']}"
-            done = len(glob.glob(str(d / "frame_*.png"))) >= shot["frames"]
-            if (only and shot["id"] not in only) or (done and not args.force and not only):
+            have = len(glob.glob(str(d / "frame_*.png")))
+            if (only and shot["id"] not in only) or (have >= shot["frames"] and not args.force and not only):
                 continue
-            shutil.rmtree(d, ignore_errors=True)
+            resume = 0 < have < shot["frames"] and not args.force and not only
+            if not resume:
+                shutil.rmtree(d, ignore_errors=True)
             cmd = [args.blender, "-b", "-P", str(ROOT / "scripts" / "render_story.py"), "--", args.story,
                    "--shot", shot["id"], "--out", str(out), "--engine", args.engine]
+            if resume:  # pick up a half-finished shot where it stopped
+                cmd += ["--frames", f"{have + 1}-{shot['frames']}"]
             if args.fast:
                 cmd.append("--fast")
             if args.samples:

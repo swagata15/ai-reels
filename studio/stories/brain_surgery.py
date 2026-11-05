@@ -123,7 +123,11 @@ def question(scene, ctx):
     big = 12
     chosen = 6
     vials = _vials(big_index=big)
-    (a5, b5), (a6, b6), (a7, b7) = ctx.lines
+    if len(ctx.lines) == 3:
+        (a5, b5), (a6, b6), (a7, b7) = ctx.lines
+    else:  # "Which one would you pick? This one, right?" + "The AI picked this one..."
+        (a5, b5), (a7, b7) = ctx.lines
+        a6 = a5 + int((b5 - a5) * 0.6)
     F = ctx.frames
     q = K.question_mark(2.4)
     for f, z in ((a5 + 1, 6.0), (a5 + 8, 2.3), (a5 + 12, 2.75), (a5 + 16, 2.45)):
@@ -193,9 +197,13 @@ def refusal(scene, ctx):
     sc.add_area_light(scene, "Rim", (-4, 4, 3), energy=600, size=4, color=(0.6, 0.8, 1))
     rig, status = K.needle_rig()
     target = Vector((-0.4, -0.55, 0.62))
-    (a8, b8), (a9, b9) = ctx.lines
+    if len(ctx.lines) == 2:
+        (a8, b8), (a9, b9) = ctx.lines
+    else:
+        (a9, b9), = ctx.lines
+        a8 = a9
     F = ctx.frames
-    stop = a9 + int((b9 - a9) * 0.45)
+    stop = a9 + int((b9 - a9) * 0.55)
     for f, z in ((1, 3.2), (a9 + 4, 3.2), (stop, 1.05), (F, 1.05)):
         rig.location = target + Vector((0, 0, z))
         rig.keyframe_insert("location", frame=f)
@@ -332,7 +340,11 @@ def pinhead(scene, ctx):
 # --------------------------------------------------------------------------- 9. three AIs
 def three_ais(scene, ctx):
     K.studio(scene)
-    (a13, b13), (a14, b14) = ctx.lines
+    if len(ctx.lines) == 2:
+        (a13, b13), (a14, b14) = ctx.lines
+    else:
+        (a13, b14), = ctx.lines
+        a14 = a13 + int((b14 - a13) * 0.3)
     F = ctx.frames
     names = [("CLAUDE", "#3FD7FF", (-0.5, -0.75, -0.2)), ("GPT", "#9BE15D", (0.6, -0.5, 0.35)),
              ("GROK", "#FF8A3D", (-1.0, 0.0, 0.45))]

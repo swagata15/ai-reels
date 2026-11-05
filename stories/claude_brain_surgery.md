@@ -1,25 +1,21 @@
 # Story v2: "The AI that chose a brain treatment"
 
-~38 s, narrated by @the.ai.gal. Style rules: see `STYLE_GUIDE.md`.
+~33 s, narrated by @the.ai.gal. Style rules: see `STYLE_GUIDE.md`.
 Accuracy: everything is as reported by Exin Therapeutics (company claims, not peer-reviewed).
 
-## Recording script (read in one take, ~1 s pause between lines)
+## Recording script (30 s cut; read in one take, ~1 s pause between lines)
 1. This tiny mouse just had brain surgery.
 2. And no human chose the treatment.
-3. A startup gave an AI nineteen gene therapies,
-4. one robotic needle, and one goal: stop this mouse's seizures.
-5. So which therapy would you pick?
-6. This one, right?
-7. The AI picked this one: a therapy that boosts the brain's natural brakes.
-8. But here's the twist.
-9. The first Claude model planned the surgery... and then refused to guide the needle.
-10. So they switched to another Claude model.
-11. A vet opened the skull, and the AI steered the needle in,
-12. injecting a droplet smaller than a pinhead.
-13. Then two other AIs got the exact same task.
-14. Each one picked a different treatment.
-15. The mouse recovered. But did it work? Nobody knows yet.
-16. Would you let an AI choose your treatment?
+3. An AI got nineteen gene therapies,
+4. and one goal: stop the seizures.
+5. Which one would you pick? This one, right?
+6. The AI picked this one: a brain-calming therapy.
+7. Twist: the first Claude model refused to steer the needle.
+8. So another Claude model steered it in,
+9. injecting a droplet smaller than a pinhead.
+10. Two other AIs each picked a different treatment.
+11. Did it work? Nobody knows yet.
+12. Would you let an AI choose your treatment?
 
 ## Shot list
 | Line | Look | Shot | 3D annotation / effect | SFX |
