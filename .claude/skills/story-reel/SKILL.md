@@ -77,6 +77,22 @@ ffmpeg -i shotA.png -i shotB.png ... -filter_complex "hstack=N,scale=1800:-1" sh
 Fix cropping, clutter, unreadable labels, wrong scale and dull compositions. Repeat until every shot
 reads clearly at phone size. Check one frame with captions burned in.
 
+## Quality gate (all must pass before any full render)
+Go through this list against the contact sheet and say PASS/FIX for each item to the user:
+- [ ] Facts: every number traced to a named source; caveat present on screen or in the voice-over.
+- [ ] Hook lands in the first 3 s, and states what happened plus the tension.
+- [ ] The script contains a question to the viewer, at least one twist, and a closing question.
+- [ ] At least 8 distinct shots in ~30 s; no single static shot longer than 4 s (the camera always moves).
+- [ ] At least one number shown as a physical measurement with an everyday comparison (maths checked).
+- [ ] Looks alternate: at least one bright studio shot and one dark/lab shot.
+- [ ] Nothing important cropped: all labels fully inside the frame with about 10% margin; captions zone clear.
+- [ ] No blobby or broken geometry, no faceted spheres, no clipped props, no overlapping labels.
+- [ ] Every shot has at least one sound cue; hook has an impact or heartbeat; end card has a chime.
+- [ ] Text on screen is readable at phone size (view the sheet at ~300 px wide per frame).
+- [ ] End card: @the.ai.gal + source line.
+- [ ] One frame checked with captions burned in.
+If anything is FIX, fix it and re-render those frames. Show the user the final sheet and get approval.
+
 ## 6. Voice, render, deliver
 - The user narrates (their own voice): one take, ~1 s pause between lines. Then
   `python scripts/voice_align.py stories/<slug>.json <audio>`; the timing now follows their voice.
