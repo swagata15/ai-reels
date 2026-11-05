@@ -32,9 +32,12 @@ def _pick_eevee(scene: bpy.types.Scene) -> None:
     scene.render.engine = "CYCLES"
 
 
-def configure_render(scene: bpy.types.Scene, spec: ReelSpec, output_dir: str) -> None:
+def configure_render(scene: bpy.types.Scene, spec: ReelSpec, output_dir: str, engine: str | None = None) -> None:
     draft = spec.quality == "draft"
-    _pick_eevee(scene)
+    if engine == "cycles":
+        scene.render.engine = "CYCLES"
+    else:
+        _pick_eevee(scene)
     r = scene.render
     r.resolution_x = REEL_WIDTH
     r.resolution_y = REEL_HEIGHT

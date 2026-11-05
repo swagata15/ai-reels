@@ -107,17 +107,24 @@ def _mix_rgb(nt, fac_socket, a, b):
 
 
 def tissue(name: str, base_hex: str = "#D99A9A", crease_hex: str = "#5A1F2A",
-           vein_hex: str = "#7A0F1E", vein_scale: float = 4.0):
+           vein_hex: str = "#7A0F1E", vein_scale: float = 4.0, crease: str = "pointiness"):
     """Wet, fleshy organic tissue: subsurface scattering, darker creases, fine vessels, coat."""
     mat, bsdf = _principled(name)
     nt = mat.node_tree
 
-    # Creases darker (Geometry > Pointiness is Cycles-only; EEVEE just ignores it).
-    geo = nt.nodes.new("ShaderNodeNewGeometry")
+    # Creases darker: Pointiness (Cycles only, free) or Ambient Occlusion (works in EEVEE too).
     crease_ramp = nt.nodes.new("ShaderNodeValToRGB")
-    crease_ramp.color_ramp.elements[0].position = 0.44
-    crease_ramp.color_ramp.elements[1].position = 0.53
-    nt.links.new(geo.outputs["Pointiness"], crease_ramp.inputs["Fac"])
+    if crease == "ao":
+        ao = nt.nodes.new("ShaderNodeAmbientOcclusion")
+        ao.inputs["Distance"].default_value = 0.35
+        crease_ramp.color_ramp.elements[0].position = 0.35
+        crease_ramp.color_ramp.elements[1].position = 0.9
+        nt.links.new(ao.outputs["AO"], crease_ramp.inputs["Fac"])
+    else:
+        geo = nt.nodes.new("ShaderNodeNewGeometry")
+        crease_ramp.color_ramp.elements[0].position = 0.44
+        crease_ramp.color_ramp.elements[1].position = 0.53
+        nt.links.new(geo.outputs["Pointiness"], crease_ramp.inputs["Fac"])
     col = _mix_rgb(nt, crease_ramp.outputs["Color"], hex_to_rgba(crease_hex), hex_to_rgba(base_hex))
 
     # Blood vessels: thin iso-lines of a noise field.

@@ -29,7 +29,7 @@ def _resolve(spec_or_path) -> ReelSpec:
     return ReelSpec.load(path)
 
 
-def build(spec_or_path, output_dir: str | None = None, render: bool = False):
+def build(spec_or_path, output_dir: str | None = None, render: bool = False, engine: str | None = None):
     """Build the reel scene in the current Blender session; optionally render frames."""
     import bpy
 
@@ -42,7 +42,7 @@ def build(spec_or_path, output_dir: str | None = None, render: bool = False):
     os.makedirs(output_dir, exist_ok=True)
 
     scene = sc.reset_scene()
-    sc.configure_render(scene, spec, output_dir)
+    sc.configure_render(scene, spec, output_dir, engine)
     module = importlib.import_module(f".templates.{spec.template}", __name__)
     module.build(scene, spec)
     scene.frame_set(1)

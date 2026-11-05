@@ -60,6 +60,18 @@ shading needs Cycles).
 
 Output is in `output/<name>/`: `<name>_reel.mp4`, `<name>_cover.jpg` and the `.blend` file.
 
+## Render lots of reels fast (cloud GPU)
+No GPU at home? Open [`notebooks/render_on_colab.ipynb`](notebooks/render_on_colab.ipynb) in
+Google Colab, switch the runtime to GPU, and run all cells. It installs Blender, renders every
+spec in `reels/` with `scripts/batch.py`, and copies the MP4s to your Google Drive.
+
+On any machine with Blender:
+```bash
+python scripts/batch.py "reels/*.json" --engine cycles          # GPU, full quality
+python scripts/batch.py "reels/*.json" --engine cycles --fast   # CPU-friendly drafts
+```
+Finished reels are skipped on re-runs, so you can keep adding specs and re-running.
+
 ## Make your own reel
 Copy a spec and edit it:
 ```json

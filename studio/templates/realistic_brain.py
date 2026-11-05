@@ -42,13 +42,14 @@ def build(scene, spec):
     tl = {"insert_s": 4.4, "inject_end_s": 7.8, "retract_s": 8.2, **p.get("timeline", {})}
 
     sc.setup_world(scene, bg, 0.35)
-    scene.render.use_motion_blur = True
+    scene.render.use_motion_blur = spec.quality == "final"
 
     # --- Brain -----------------------------------------------------------------
     pivot = bpy.data.objects.new("BrainPivot", None)
     scene.collection.objects.link(pivot)
-    brain_mat = looks.tissue("BrainTissue", base_hex="#D58D8B", crease_hex="#4A1520")
-    stem_mat = looks.tissue("StemTissue", base_hex="#C98C8C", vein_scale=2.5)
+    crease = "pointiness" if scene.render.engine == "CYCLES" else "ao"
+    brain_mat = looks.tissue("BrainTissue", base_hex="#D58D8B", crease_hex="#4A1520", crease=crease)
+    stem_mat = looks.tissue("StemTissue", base_hex="#C98C8C", vein_scale=2.5, crease=crease)
     for obj, mat in ((_cerebrum("Cerebrum", 6), brain_mat), (_cerebellum("Cerebellum"), brain_mat),
                      (_brainstem("Brainstem"), stem_mat)):
         looks.assign(obj, mat)
