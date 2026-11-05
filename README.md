@@ -63,6 +63,24 @@ shading needs Cycles).
 
 Output is in `output/<name>/`: `<name>_reel.mp4`, `<name>_cover.jpg` and the `.blend` file.
 
+## Story reels (narrated, Zack-D-style)
+Narrated multi-shot stories: a new shot every few seconds, word-by-word captions, 3D annotations
+(red arrows, measurement lines with counters, question marks), and sound design on every action.
+See `stories/STYLE_GUIDE.md` for the rules and `stories/claude_brain_surgery.*` for a full example.
+
+1. Write the story: `stories/<name>.json` (script lines + shots) and shot builders in
+   `studio/stories/<module>.py` using the kit in `studio/storykit.py`.
+2. Record your narration in one take, ~1 s pause between lines, then sync it:
+   ```bash
+   python scripts/voice_align.py stories/claude_brain_surgery.json voice/brain_surgery.m4a
+   ```
+3. Render + assemble (captions, SFX and your voice are added automatically):
+   ```bash
+   python scripts/make_story.py stories/claude_brain_surgery.json --blender /path/to/blender \
+       --voice voice/brain_surgery.m4a
+   ```
+   Without a voice file, timing is estimated from the script (good for previews).
+
 ## Render lots of reels in one paid hour (RunPod)
 1. **Before starting the pod:** get all your reel specs into `reels/` and pushed to GitHub
    (ask Claude to write them). Every minute the pod is running costs money, so prep comes first.

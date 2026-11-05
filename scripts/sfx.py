@@ -133,7 +133,86 @@ def pad(duration, mood="calm"):
     return 0.05 * s * fade
 
 
+def heartbeat(beats=3, bpm=70):
+    out = np.zeros(int(SR * 60 / bpm * beats) + SR)
+    for k in range(beats):
+        for off, g in ((0.0, 1.0), (0.22, 0.6)):
+            t = _t(0.18)
+            s = np.sin(2 * np.pi * 55 * t) * np.exp(-t * 22) * g
+            i = int((k * 60 / bpm + off) * SR)
+            out[i:i + len(s)] += s
+    return 0.8 * out
+
+
+def thud():
+    t = _t(0.35)
+    return 0.9 * np.sin(2 * np.pi * np.cumsum(70 * np.exp(-t * 6) + 35) / SR) * np.exp(-t * 9)
+
+
+def tap():
+    t = _t(0.06)
+    return 0.4 * _lowpass(rng.standard_normal(len(t)), 3000) * np.exp(-t * 80)
+
+
+def glint():
+    t = _t(0.6)
+    return 0.18 * (np.sin(2 * np.pi * 3520 * t) + 0.5 * np.sin(2 * np.pi * 5280 * t)) * np.exp(-t * 7)
+
+
+def buzz():
+    t = _t(0.55)
+    saw = 2 * ((110 * t) % 1) - 1
+    return 0.35 * np.tanh(3 * saw) * np.where((t * 9) % 1 < 0.75, 1, 0.2) * np.exp(-t * 1.5)
+
+
+def servo(dur=0.7):
+    t = _t(dur)
+    f = 180 + 120 * np.sin(np.pi * t / dur)
+    s = np.sin(2 * np.pi * np.cumsum(f) / SR) + 0.3 * np.sin(2 * np.pi * np.cumsum(f * 3.01) / SR)
+    return 0.12 * s * np.sin(np.pi * t / dur)
+
+
+def beep(freq=1320):
+    t = _t(0.16)
+    return 0.22 * np.sin(2 * np.pi * freq * t) * _env(len(t), 0.003, 0.08)
+
+
+def slide(dur=0.9):
+    t = _t(dur)
+    noise = _lowpass(rng.standard_normal(len(t)), np.linspace(1500, 400, len(t)))
+    return 0.35 * noise * np.sin(np.pi * t / dur)
+
+
+def drip():
+    t = _t(0.25)
+    f = 600 + 900 * np.exp(-t * 25)
+    return 0.45 * np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t * 18)
+
+
+def crackle(dur=0.35):
+    t = _t(dur)
+    sparks = (rng.random(len(t)) > 0.985) * rng.standard_normal(len(t)) * 3
+    return 0.4 * (_lowpass(sparks, 6000) + 0.15 * _lowpass(rng.standard_normal(len(t)), 900)) * np.exp(-t * 4)
+
+
+def rustle(dur=0.8):
+    t = _t(dur)
+    return 0.12 * _lowpass(rng.standard_normal(len(t)), 2500) * np.sin(np.pi * t / dur) ** 2
+
+
 SOUNDS = {
+    "heartbeat": lambda c: heartbeat(c.get("beats", 3)),
+    "thud": lambda c: thud(),
+    "tap": lambda c: tap(),
+    "glint": lambda c: glint(),
+    "buzz": lambda c: buzz(),
+    "servo": lambda c: servo(c.get("dur", 0.7)),
+    "beep": lambda c: beep(c.get("freq", 1320)),
+    "slide": lambda c: slide(c.get("dur", 0.9)),
+    "drip": lambda c: drip(),
+    "crackle": lambda c: crackle(),
+    "rustle": lambda c: rustle(),
+    "chime_one": lambda c: bell(c.get("freq", 880), 1.4, 0.28),
     "impact": lambda c: impact(),
     "whoosh": lambda c: whoosh(c.get("dur", 0.45), True),
     "swoosh_out": lambda c: whoosh(0.35, False) * 0.6,

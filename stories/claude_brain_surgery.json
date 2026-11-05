@@ -1,0 +1,40 @@
+{
+  "name": "claude_brain_surgery_story",
+  "module": "brain_surgery",
+  "fps": 24,
+  "lead_in": 0.3,
+  "tail": 1.8,
+  "handle": "@the.ai.gal",
+  "source": "Source: Exin Therapeutics, as reported by The Decoder, Digital Citizen & others (Nov 2026). Company claims, not peer-reviewed.",
+  "lines": [
+    {"text": "This tiny mouse just had brain surgery."},
+    {"text": "And no human chose the treatment."},
+    {"text": "A startup gave an AI nineteen gene therapies,"},
+    {"text": "one robotic needle, and one goal: stop this mouse's seizures."},
+    {"text": "So which therapy would you pick?"},
+    {"text": "This one, right?"},
+    {"text": "The AI picked this one: a therapy that boosts the brain's natural brakes."},
+    {"text": "But here's the twist."},
+    {"text": "The first Claude model planned the surgery... and then refused to guide the needle."},
+    {"text": "So they switched to another Claude model."},
+    {"text": "A vet opened the skull, and the AI steered the needle in,"},
+    {"text": "injecting a droplet smaller than a pinhead."},
+    {"text": "Then two other AIs got the exact same task."},
+    {"text": "Each one picked a different treatment."},
+    {"text": "The mouse recovered. But did it work? Nobody knows yet."},
+    {"text": "Would you let an AI choose your treatment?"}
+  ],
+  "shots": [
+    {"id": "lab_intro", "lines": [1, 2]},
+    {"id": "vials_row", "lines": [3]},
+    {"id": "storm", "lines": [4]},
+    {"id": "question", "lines": [5, 6, 7]},
+    {"id": "refusal", "lines": [8, 9]},
+    {"id": "switch", "lines": [10]},
+    {"id": "xray_inject", "lines": [11]},
+    {"id": "pinhead", "lines": [12]},
+    {"id": "three_ais", "lines": [13, 14]},
+    {"id": "recovery", "lines": [15]},
+    {"id": "end", "lines": [16]}
+  ]
+}
