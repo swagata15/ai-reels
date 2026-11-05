@@ -60,6 +60,23 @@ shading needs Cycles).
 
 Output is in `output/<name>/`: `<name>_reel.mp4`, `<name>_cover.jpg` and the `.blend` file.
 
+## Render lots of reels in one paid hour (RunPod)
+1. **Before starting the pod:** get all your reel specs into `reels/` and pushed to GitHub
+   (ask Claude to write them). Every minute the pod is running costs money, so prep comes first.
+2. On [RunPod](https://www.runpod.io), deploy a **GPU Pod** with an NVIDIA card (an RTX 4090 is the
+   sweet spot for Blender) using the **RunPod PyTorch** template, then open the **web terminal**.
+3. Run:
+   ```bash
+   curl -fsSL https://raw.githubusercontent.com/swagata15/ai-reels/main/scripts/runpod.sh | bash
+   ```
+   For a private repo, `export GITHUB_TOKEN=...` first, then clone and run
+   `bash ai-reels/scripts/runpod.sh`.
+   Setup takes about 2 minutes, then it renders every reel (2 at a time) and makes a zip.
+4. Download the zip from the pod's Jupyter file browser, then **stop the pod**.
+
+Tune it with env vars: `JOBS=3 SAMPLES=48 REELS="reels/news_*.json" bash scripts/runpod.sh`.
+The first finished reel prints its render time, so you can see how many fit in your hour.
+
 ## Render lots of reels fast (cloud GPU)
 No GPU at home? Open [`notebooks/render_on_colab.ipynb`](notebooks/render_on_colab.ipynb) in
 Google Colab, switch the runtime to GPU, and run all cells. It installs Blender, renders every
