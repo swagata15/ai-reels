@@ -1,0 +1,8 @@
+{
+  "name": "crystal_loop",
+  "template": "crystal_loop",
+  "duration_s": 6,
+  "fps": 30,
+  "palette": ["#0D0A1F", "#9D7BFF", "#3DE0FF", "#FF7AC8"],
+  "params": {"grid": 9, "wave": 1.5, "amplitude": 1.0, "orbit": true}
+}

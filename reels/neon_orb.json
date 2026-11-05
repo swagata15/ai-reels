@@ -1,0 +1,9 @@
+{
+  "name": "neon_orb",
+  "template": "neon_orb",
+  "duration_s": 8,
+  "fps": 30,
+  "seed": 11,
+  "palette": ["#07071A", "#7B5CFF", "#00E5FF", "#FF3D9A"],
+  "params": {"rings": 3, "sparks": 45, "spin": 1}
+}

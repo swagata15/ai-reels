@@ -1,0 +1,5 @@
+output/
+*.blend1
+__pycache__/
+music/*
+!music/.gitkeep
