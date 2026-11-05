@@ -11,6 +11,11 @@ The finished example to copy from is `stories/claude_brain_surgery.json` + `stud
 
 Work through the steps in order. Do not skip the test-render step; it is where quality comes from.
 
+## 0. Ready-made scripts
+If the user says "build stories/drafts/<slug>.md" (or names one of those topics), the research and
+script are already done there (recording script, per-line visual plan, props, caveat, source).
+Re-check that the facts are still current, then go straight to step 3.
+
 ## 1. Research and verify (never skip)
 - Search for the topic (WebSearch, `mode: "extended"` for news). Prefer primary sources: the paper,
   the company post, the university press release. Note every number with its source.
